@@ -1,0 +1,740 @@
+ db.students.update({name:'Anindo'}, {$push:{interests:'skateboarding'}})
+ db.students.update({name:'Anindo}, {$pop:{interests:1}})
+db.students.insert({name:"Anindo",home_state:"WA",lucky_number:8, birthday:{month:03, day: 26, year:1972}})
+db.students.update({}, {$set{number_of_belts:0}})
+db.students.update({home_state:"WA"}, {$set:{number_of_belts:1}},{multi:true})
+db.students.update({}, {$rename:{number_of_belts:'belts_earned'}})
+
+Last login: Thu Jan 14 17:25:24 on ttys000
+Anindos-MacBook-Air:~ anindokhan$ homebrew
+-bash: homebrew: command not found
+Anindos-MacBook-Air:~ anindokhan$ brew
+Example usage:
+  brew search [TEXT|/REGEX/]
+  brew info [FORMULA...]
+  brew install FORMULA...
+  brew update
+  brew upgrade [FORMULA...]
+  brew uninstall FORMULA...
+  brew list [FORMULA...]
+
+Troubleshooting:
+  brew config
+  brew doctor
+  brew install --verbose --debug FORMULA
+
+Contributing:
+  brew create [URL [--no-fetch]]
+  brew edit [FORMULA...]
+
+Further help:
+  brew commands
+  brew help [COMMAND]
+  man brew
+  https://docs.brew.sh
+Anindos-MacBook-Air:~ anindokhan$ clear
+
+Anindos-MacBook-Air:~ anindokhan$ xcode-select --install
+xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+Anindos-MacBook-Air:~ anindokhan$ brew tap mongodb/brew
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/services).
+==> New Formulae
+aida-header                indicators                 pkger
+atkmm@2.28                 inframap                   ptpython
+attr                       jpeg-xl                    richmd
+aws-console                jql                        rttr
+bandit                     keptn                      ruby@2.7
+bpython                    khiva                      spack
+cargo-audit                libcap-ng                  sqlc
+cargo-watch                libnsl                     tctl
+counterfeiter              libpinyin                  terracognita
+dnsx                       libva                      tgenv
+dprint                     libvdpau                   thrax
+driftctl                   libvnc                     trec_eval
+dstask                     libxml++@4                 vc
+efm-langserver             libxml++@5                 wayland
+flow-cli                   logswan                    wayland-protocols
+forge                      lp_solve                   xcb-util-cursor
+gallery-dl                 luajit-openresty           xcb-util-image
+gdu                        massdns                    xcb-util-keysyms
+glibmm@2.64                md4c                       xcb-util-renderutil
+gofumpt                    mermaid-cli                xcb-util-wm
+gojq                       mockery                    xcbeautify
+goredo                     muffet                     xcinfo
+grokj2k                    oakc                       ykdl
+gtkmm4                     ocaml-zarith               yq@3
+h2spec                     openalpr                   zsh-async
+hblock                     pangomm@2.42
+heppdt2                    pdftilecut
+==> Updated Formulae
+Updated 4234 formulae.
+==> Renamed Formulae
+gtk+4 -> gtk4
+==> Deleted Formulae
+dtrx                gobby               godep               unrar
+
+==> Tapping mongodb/brew
+Cloning into '/usr/local/Homebrew/Library/Taps/mongodb/homebrew-brew'...
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 504 (delta 0), reused 0 (delta 0), pack-reused 503
+Receiving objects: 100% (504/504), 106.55 KiB | 367.00 KiB/s, done.
+Resolving deltas: 100% (238/238), done.
+Tapped 11 formulae (38 files, 177.4KB).
+Anindos-MacBook-Air:~ anindokhan$ brew install mongodb-community@4.2
+Updating Homebrew...
+==> Installing mongodb-community@4.2 from mongodb/brew
+==> Downloading https://fastdl.mongodb.org/osx/mongodb-macos-x86_64-4.2.9.tgz
+######################################################################## 100.0%
+==> Caveats
+mongodb-community@4.2 is keg-only, which means it was not symlinked into /usr/local,
+because this is an alternate version of another formula.
+
+If you need to have mongodb-community@4.2 first in your PATH run:
+  echo 'export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"' >> /Users/anindokhan/.bash_profile
+
+
+To have launchd start mongodb/brew/mongodb-community@4.2 now and restart at login:
+  brew services start mongodb/brew/mongodb-community@4.2
+Or, if you don't want/need a background service you can just run:
+  mongod --config /usr/local/etc/mongod.conf
+==> Summary
+🍺  /usr/local/Cellar/mongodb-community@4.2/4.2.9: 21 files, 306.4MB, built in 13 seconds
+==> `brew cleanup` has not been run in 30 days, running now...
+Removing: /Users/anindokhan/Library/Caches/Homebrew/mysql--8.0.22_1.mojave.bottle.tar.gz... (80.7MB)
+Removing: /Users/anindokhan/Library/Caches/Homebrew/openssl@1.1--1.1.1h.mojave.bottle.tar.gz... (5.4MB)
+Removing: /Users/anindokhan/Library/Logs/Homebrew/maven... (101B)
+Removing: /Users/anindokhan/Library/Logs/Homebrew/openjdk... (64B)
+Removing: /Users/anindokhan/Library/Logs/Homebrew/mysql... (1.1KB)
+Removing: /Users/anindokhan/Library/Logs/Homebrew/openssl@1.1... (64B)
+Removing: /Users/anindokhan/Library/Logs/Homebrew/protobuf... (64B)
+Pruned 1 symbolic links and 2 directories from /usr/local
+Error: Permission denied @ apply2files - /usr/local/lib/node_modules/nodemon/node_modules/term-size/vendor/macos/.DS_Store
+Anindos-MacBook-Air:~ anindokhan$ brew services start mongodb-community
+Error: Formula `mongodb-community` is not installed.
+Anindos-MacBook-Air:~ anindokhan$ brew services start mongodb-community@4.2
+==> Successfully started `mongodb-community@4.2` (label: homebrew.mxcl.mongodb-c
+Anindos-MacBook-Air:~ anindokhan$ mongo
+-bash: mongo: command not found
+Anindos-MacBook-Air:~ anindokhan$ mongo@4.2
+-bash: mongo@4.2: command not found
+Anindos-MacBook-Air:~ anindokhan$ brew install mongodb-community
+Updating Homebrew...
+==> Installing mongodb-community from mongodb/brew
+==> Downloading https://fastdl.mongodb.org/tools/db/mongodb-database-tools-macos
+######################################################################## 100.0%
+==> Downloading https://fastdl.mongodb.org/osx/mongodb-macos-x86_64-4.4.3.tgz
+######################################################################## 100.0%
+==> Installing dependencies for mongodb/brew/mongodb-community: mongodb-database-tools
+==> Installing mongodb/brew/mongodb-community dependency: mongodb-database-
+🍺  /usr/local/Cellar/mongodb-database-tools/100.2.1: 13 files, 173MB, built in 9 seconds
+==> Installing mongodb/brew/mongodb-community
+==> Caveats
+To have launchd start mongodb/brew/mongodb-community now and restart at login:
+  brew services start mongodb/brew/mongodb-community
+Or, if you don't want/need a background service you can just run:
+  mongod --config /usr/local/etc/mongod.conf
+==> Summary
+🍺  /usr/local/Cellar/mongodb-community/4.4.3: 11 files, 156.8MB, built in 8 seconds
+==> `brew cleanup` has not been run in 30 days, running now...
+Error: Permission denied @ apply2files - /usr/local/lib/node_modules/nodemon/node_modules/term-size/vendor/macos/.DS_Store
+Anindos-MacBook-Air:~ anindokhan$ brew services start mongodb-community
+==> Successfully started `mongodb-community` (label: homebrew.mxcl.mongodb-commu
+Anindos-MacBook-Air:~ anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("954a61d3-8909-4158-bfa8-8af741051e47") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> ^C
+bye
+Anindos-MacBook-Air:~ anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("cdb56d97-1c5f-463f-ac96-2a1c151d7c30") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> ^C
+bye
+Anindos-MacBook-Air:~ anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("b60b29bd-9354-4b5e-ac94-4118ebc21f05") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> ^C
+bye
+Anindos-MacBook-Air:~ anindokhan$ ls
+Applications				Music
+Desktop					Pictures
+Documents				Postman
+Downloads				Public
+Khan_Anindo_VS_Assignment_1.mdoc	index.html
+Library					python_stack
+Movies
+Anindos-MacBook-Air:~ anindokhan$ ls
+Applications				Music
+Desktop					Pictures
+Documents				Postman
+Downloads				Public
+Khan_Anindo_VS_Assignment_1.mdoc	index.html
+Library					python_stack
+Movies
+Anindos-MacBook-Air:~ anindokhan$ cd Applications/
+Anindos-MacBook-Air:Applications anindokhan$ ls
+Anindos-MacBook-Air:Applications anindokhan$ ls
+Anindos-MacBook-Air:Applications anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("930abc61-8c59-4411-9e8b-eb8f34b7ea63") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> db 
+test
+> use my_first_db
+switched to db my_first_db
+> db
+my_first_db
+> db createCollection("students")
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:3
+> db.createCollection("students")
+{ "ok" : 1 }
+> ^C
+bye
+Anindos-MacBook-Air:Applications anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("eff575c8-e2f9-4b55-b127-bbd437db0826") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> db
+test
+> use my_first_db
+switched to db my_first_db
+> show dbs
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+my_first_db  0.000GB
+> use my_first_db
+switched to db my_first_db
+> db
+my_first_db
+> show collections
+students
+> db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75^C
+bye
+Anindos-MacBook-Air:Applications anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("ffe2b820-9a40-40c0-bebe-738d2531595d") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> db
+test
+> show dbs
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+my_first_db  0.000GB
+> use my_first_db
+switched to db my_first_db
+> db.students.find()
+> db.students.insert({name:"Anindo",home_state:"WA",lucky_number:"75", birthday:{month:09, day: 26, year:1997}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 } }
+> db.students.insert({name:"Bob",home_state:"WA",lucky_number:"7", birthday:{month:03, day: 26, year:1972}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 } }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 } }
+> db.students.insert({name:"Sally",home_state:"WA",lucky_number:"5", birthday:{month:12, day: 12, year:2000})
+... db.students.find()
+... 
+... ^C
+
+> mongo
+uncaught exception: ReferenceError: mongo is not defined :
+@(shell):1:1
+> ^C
+bye
+Anindos-MacBook-Air:Applications anindokhan$ mongo
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("002d4964-163e-4084-a445-accfe2ca6770") }
+MongoDB server version: 4.2.9
+WARNING: shell and server versions do not match
+---
+The server generated these startup warnings when booting: 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] 
+2021-01-15T13:37:02.950-0800 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+---
+--- db.students.insert({name:"Sally",home_state:"WA",lucky_number:"5", birthday:{month:12, day: 12, year:2001}})
+... db.students.insert({name:"Sally",home_state:"WA",lucky_number:"50", birthday:{month:12, day: 12, year:2001}})
+... db.students.find()
+... )
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:106
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 } }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 } }
+> db.students.insert({name:"Sally",home_state:"WA",lucky_number:"50", birthday:{month:12, day: 12, year:2001}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Joe",home_state:"WA",lucky_number:"5", birthday:{month:12, day: 12, year:2002}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Jack",home_state:"WA",lucky_number:"522", birthday:{month:10, day: 21, year:2003}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 } }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 } }
+{ "_id" : ObjectId("600216bf56df8473f70d6a81"), "name" : "Sally", "home_state" : "WA", "lucky_number" : "50", "birthday" : { "month" : 12, "day" : 12, "year" : 2001 } }
+{ "_id" : ObjectId("600216d556df8473f70d6a82"), "name" : "Joe", "home_state" : "WA", "lucky_number" : "5", "birthday" : { "month" : 12, "day" : 12, "year" : 2002 } }
+{ "_id" : ObjectId("600216e956df8473f70d6a83"), "name" : "Jack", "home_state" : "WA", "lucky_number" : "522", "birthday" : { "month" : 10, "day" : 21, "year" : 2003 } }
+> db.students.find({home_state:"WA"})
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 } }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 } }
+{ "_id" : ObjectId("600216bf56df8473f70d6a81"), "name" : "Sally", "home_state" : "WA", "lucky_number" : "50", "birthday" : { "month" : 12, "day" : 12, "year" : 2001 } }
+{ "_id" : ObjectId("600216d556df8473f70d6a82"), "name" : "Joe", "home_state" : "WA", "lucky_number" : "5", "birthday" : { "month" : 12, "day" : 12, "year" : 2002 } }
+{ "_id" : ObjectId("600216e956df8473f70d6a83"), "name" : "Jack", "home_state" : "WA", "lucky_number" : "522", "birthday" : { "month" : 10, "day" : 21, "year" : 2003 } }
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("600214a96d67222699cb2fc4"),
+	"name" : "Anindo",
+	"home_state" : "WA",
+	"lucky_number" : "75",
+	"birthday" : {
+		"month" : 9,
+		"day" : 26,
+		"year" : 1997
+	}
+}
+{
+	"_id" : ObjectId("600214d96d67222699cb2fc5"),
+	"name" : "Bob",
+	"home_state" : "WA",
+	"lucky_number" : "7",
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	}
+}
+{
+	"_id" : ObjectId("600216bf56df8473f70d6a81"),
+	"name" : "Sally",
+	"home_state" : "WA",
+	"lucky_number" : "50",
+	"birthday" : {
+		"month" : 12,
+		"day" : 12,
+		"year" : 2001
+	}
+}
+{
+	"_id" : ObjectId("600216d556df8473f70d6a82"),
+	"name" : "Joe",
+	"home_state" : "WA",
+	"lucky_number" : "5",
+	"birthday" : {
+		"month" : 12,
+		"day" : 12,
+		"year" : 2002
+	}
+}
+{
+	"_id" : ObjectId("600216e956df8473f70d6a83"),
+	"name" : "Jack",
+	"home_state" : "WA",
+	"lucky_number" : "522",
+	"birthday" : {
+		"month" : 10,
+		"day" : 21,
+		"year" : 2003
+	}
+}
+> db.students.find({lucky_number:{$gt:3}})
+> db.students.updat({}, {$set:{interests:['coding', 'brunch', 'MongoDB']}},{multi:true})
+uncaught exception: TypeError: db.students.updat is not a function :
+@(shell):1:1
+> db.students.update({}, {$set:{interests:['coding', 'brunch', 'MongoDB']}},{multi:true})
+WriteResult({ "nMatched" : 5, "nUpserted" : 0, "nModified" : 5 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216bf56df8473f70d6a81"), "name" : "Sally", "home_state" : "WA", "lucky_number" : "50", "birthday" : { "month" : 12, "day" : 12, "year" : 2001 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216d556df8473f70d6a82"), "name" : "Joe", "home_state" : "WA", "lucky_number" : "5", "birthday" : { "month" : 12, "day" : 12, "year" : 2002 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216e956df8473f70d6a83"), "name" : "Jack", "home_state" : "WA", "lucky_number" : "522", "birthday" : { "month" : 10, "day" : 21, "year" : 2003 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+>  db.students.update({name:'Anindo'}, {$push:{interests:'skateboarding'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 }, "interests" : [ "coding", "brunch", "MongoDB", "skateboarding" ] }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216bf56df8473f70d6a81"), "name" : "Sally", "home_state" : "WA", "lucky_number" : "50", "birthday" : { "month" : 12, "day" : 12, "year" : 2001 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216d556df8473f70d6a82"), "name" : "Joe", "home_state" : "WA", "lucky_number" : "5", "birthday" : { "month" : 12, "day" : 12, "year" : 2002 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216e956df8473f70d6a83"), "name" : "Jack", "home_state" : "WA", "lucky_number" : "522", "birthday" : { "month" : 10, "day" : 21, "year" : 2003 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+>  db.students.update({name:'Anindo'}, {$push:{interests:'taxes'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 }, "interests" : [ "coding", "brunch", "MongoDB", "skateboarding", "taxes" ] }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216bf56df8473f70d6a81"), "name" : "Sally", "home_state" : "WA", "lucky_number" : "50", "birthday" : { "month" : 12, "day" : 12, "year" : 2001 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216d556df8473f70d6a82"), "name" : "Joe", "home_state" : "WA", "lucky_number" : "5", "birthday" : { "month" : 12, "day" : 12, "year" : 2002 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216e956df8473f70d6a83"), "name" : "Jack", "home_state" : "WA", "lucky_number" : "522", "birthday" : { "month" : 10, "day" : 21, "year" : 2003 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+>  db.students.update({name:'Anindo'}, {$pop:{interests:1}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("600214a96d67222699cb2fc4"), "name" : "Anindo", "home_state" : "WA", "lucky_number" : "75", "birthday" : { "month" : 9, "day" : 26, "year" : 1997 }, "interests" : [ "coding", "brunch", "MongoDB", "skateboarding" ] }
+{ "_id" : ObjectId("600214d96d67222699cb2fc5"), "name" : "Bob", "home_state" : "WA", "lucky_number" : "7", "birthday" : { "month" : 3, "day" : 26, "year" : 1972 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216bf56df8473f70d6a81"), "name" : "Sally", "home_state" : "WA", "lucky_number" : "50", "birthday" : { "month" : 12, "day" : 12, "year" : 2001 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216d556df8473f70d6a82"), "name" : "Joe", "home_state" : "WA", "lucky_number" : "5", "birthday" : { "month" : 12, "day" : 12, "year" : 2002 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+{ "_id" : ObjectId("600216e956df8473f70d6a83"), "name" : "Jack", "home_state" : "WA", "lucky_number" : "522", "birthday" : { "month" : 10, "day" : 21, "year" : 2003 }, "interests" : [ "coding", "brunch", "MongoDB" ] }
+> db.students.insert({name:"Bobbyyyy",home_state:"CA",lucky_number:8, birthday:{month:03, day: 26, year:1972}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("600214a96d67222699cb2fc4"),
+	"name" : "Anindo",
+	"home_state" : "WA",
+	"lucky_number" : "75",
+	"birthday" : {
+		"month" : 9,
+		"day" : 26,
+		"year" : 1997
+	},
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB",
+		"skateboarding"
+	]
+}
+{
+	"_id" : ObjectId("600214d96d67222699cb2fc5"),
+	"name" : "Bob",
+	"home_state" : "WA",
+	"lucky_number" : "7",
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	},
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+	"_id" : ObjectId("600216bf56df8473f70d6a81"),
+	"name" : "Sally",
+	"home_state" : "WA",
+	"lucky_number" : "50",
+	"birthday" : {
+		"month" : 12,
+		"day" : 12,
+		"year" : 2001
+	},
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+	"_id" : ObjectId("600216d556df8473f70d6a82"),
+	"name" : "Joe",
+	"home_state" : "WA",
+	"lucky_number" : "5",
+	"birthday" : {
+		"month" : 12,
+		"day" : 12,
+		"year" : 2002
+	},
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+	"_id" : ObjectId("600216e956df8473f70d6a83"),
+	"name" : "Jack",
+	"home_state" : "WA",
+	"lucky_number" : "522",
+	"birthday" : {
+		"month" : 10,
+		"day" : 21,
+		"year" : 2003
+	},
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+	"_id" : ObjectId("60023abb56df8473f70d6a84"),
+	"name" : "Bobbyyyy",
+	"home_state" : "CA",
+	"lucky_number" : 8,
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	}
+}
+> db.students.remove({home_state:"WA"})
+WriteResult({ "nRemoved" : 5 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("60023abb56df8473f70d6a84"),
+	"name" : "Bobbyyyy",
+	"home_state" : "CA",
+	"lucky_number" : 8,
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	}
+}
+> db.students.insert({name:"Anindo",home_state:"CA",lucky_number:8, birthday:{month:03, day: 26, year:1972}})
+WriteResult({ "nInserted" : 1 })
+> db.students.remove({name:Anindo})
+uncaught exception: ReferenceError: Anindo is not defined :
+@(shell):1:21
+> db.students.remove({name:'Anindo'})
+WriteResult({ "nRemoved" : 1 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("60023abb56df8473f70d6a84"),
+	"name" : "Bobbyyyy",
+	"home_state" : "CA",
+	"lucky_number" : 8,
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	}
+}
+> db.students.remove({$gt:{lucky_number:5}}, true)
+WriteResult({
+	"nRemoved" : 0,
+	"writeError" : {
+		"code" : 2,
+		"errmsg" : "unknown top level operator: $gt"
+	}
+})
+> db.students.remove({lucky_number:{$gt:5}}, true)
+WriteResult({ "nRemoved" : 1 })
+> db.students.find().all()
+uncaught exception: TypeError: db.students.find(...).all is not a function :
+@(shell):1:1
+> db.students.find().pretty()
+> db.students.insert({name:"Anindo",home_state:"WA",lucky_number:8, birthday:{month:03, day: 26, year:1972}})
+WriteResult({ "nInserted" : 1 })
+> db.students.update({}, {$set:{number_of_belts:0}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("60023df956df8473f70d6a86"),
+	"name" : "Anindo",
+	"home_state" : "WA",
+	"lucky_number" : 8,
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	},
+	"number_of_belts" : 0
+}
+> db.students.update({home_state:"WA"}, {$set{number_of_belts:1}},{multi:true})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:43
+> db.students.update({home_state:"WA"}, {$set:{number_of_belts:1}},{multi:true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("60023df956df8473f70d6a86"),
+	"name" : "Anindo",
+	"home_state" : "WA",
+	"lucky_number" : 8,
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	},
+	"number_of_belts" : 1
+}
+> db.students.update({}, {$rename:{number_of_belts:'belts_earned'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("60023df956df8473f70d6a86"),
+	"name" : "Anindo",
+	"home_state" : "WA",
+	"lucky_number" : 8,
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	},
+	"belts_earned" : 1
+}
+> db.students.({lucky_number})
+uncaught exception: SyntaxError: missing name after . operator :
+@(shell):1:12
+> db.students.remove({lucky_number})
+uncaught exception: ReferenceError: lucky_number is not defined :
+@(shell):1:21
+> db.students.update({}, {$unset:{lucky_number:1}}, false, true)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.students.find().pretty()
+{
+	"_id" : ObjectId("60023df956df8473f70d6a86"),
+	"name" : "Anindo",
+	"home_state" : "WA",
+	"birthday" : {
+		"month" : 3,
+		"day" : 26,
+		"year" : 1972
+	},
+	"belts_earned" : 1
+}
+> db.students.update({}, {$set:{
+... db.students.update({}.{$set:{"updated_on":1}},false,true)
+... 
+... db.students.find().pretty()

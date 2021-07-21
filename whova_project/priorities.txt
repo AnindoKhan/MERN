@@ -1,0 +1,53 @@
+P1 ##################
+    styling
+        InquiryInfo minor tweaks
+
+
+P2 ##################
+    validation on FinalQuote submit button if contact info on CustomerInquiry missing
+    node emails have content from inquiry
+    quote object restructure so number items have their value and cost, not just cost
+
+P3 ##################
+    admin page inquiries are sorted by date (created? or event?)
+    animations / fade in/out
+
+
+DONE ################
+    P1 ##################
+        node.js email https://www.w3schools.com/nodejs/nodejs_email.asp
+        get add ons to save to db
+        add a view button in admin 
+        masterQuote component to be child of InquiryInfo
+        success page
+        proper names for masterquote
+        adming page - rename items in itimized quote
+        basic validations (HTML)
+        inquiries table - dates need to look right
+        AWS deployment
+        bugs / things to fix:
+        alert: Change "Whova Representative" to "Cole Dillinger"
+        styling
+            inquiryInfo should look more like a paper receipt or PDF or something
+            CustomerInquiry - move quote area further down for user to scroll
+            QuoteForm - checkboxes look like shite
+        bugs
+            total sometimes needs to be calculated twice to be correct
+            premium exhibitor features / passport contest $300 (only if exhibitors)
+            subtotal in finalQUote not updating when exhibitors removed
+            higher discounts still appear on FinalQuote if user had higher subtotal
+            passport charge not removed from quote if exhibitrs is changed to 0
+            
+    P2 ##################
+
+******BEFORE DEPLOYMENT****
+Change to address to autoEmail.js
+Change admin password
+
+### Agreement with client ###
+
+this code is IP of anindo and dwayne, licensed to client.
+product is:
+    hosted, deployed website with email alerts
+    3 months of included obligation to fix/repair/redeploy website as needed*
+        does not include adding new features 

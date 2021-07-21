@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.App {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+body {
+    color: white;
+    background-image: url("./calc_bg.png");
+    background-color: #2DACEE;
+}
